@@ -1,6 +1,6 @@
 package net.reduck.validator.plus.validator.anatation;
 
-import net.reduck.validator.plus.validator.ValueInSetValidator;
+import net.reduck.validator.plus.validator.StringInSetValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,8 +11,8 @@ import java.lang.annotation.Target;
 
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ValueInSetValidator.class)  // 指定验证器类
-public @interface ValueInSet {
+@Constraint(validatedBy = StringInSetValidator.class)  // 指定验证器类
+public @interface IntInSet {
 
     String message() default "Value must be one of the predefined values";  // 默认错误信息
 
@@ -20,5 +20,5 @@ public @interface ValueInSet {
 
     Class<? extends Payload>[] payload() default {};  // 可用于携带元数据
 
-    String[] values();  // 允许传入的值集合
+    int[] values() default {};  // 允许传入的值集合
 }

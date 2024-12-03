@@ -1,6 +1,6 @@
 package net.reduck.validator.plus.validator;
 
-import net.reduck.validator.plus.validator.anatation.ValueInSet;
+import net.reduck.validator.plus.validator.anatation.StringInSet;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -8,12 +8,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ValueInSetValidator implements ConstraintValidator<ValueInSet, String> {
+public class StringInSetValidator implements ConstraintValidator<StringInSet, String> {
 
     private Set<String> validValues;  // 存储有效的值集合
 
     @Override
-    public void initialize(ValueInSet constraintAnnotation) {
+    public void initialize(StringInSet constraintAnnotation) {
         // 获取注解中的有效值数组，并将其转换为 Set 集合
         validValues = new HashSet<>(Arrays.asList(constraintAnnotation.values()));
     }
